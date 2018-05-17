@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router'
 import { Coffee } from '../logic/coffee';
+import { GeoLocationService } from '../geo-location.service'
 
 
 @Component({
@@ -15,7 +16,8 @@ export class CoffeeComponent implements OnInit {
           "Capiccino","Frappe"];
   
   constructor(
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private geoLocation: GeoLocationService
   ) { }
 
   routingSubscription: any;
@@ -24,6 +26,15 @@ export class CoffeeComponent implements OnInit {
     this.coffee = new Coffee();
     this.routingSubscription = this.route.params.subscribe(params =>{
       console.log(params["id"])
+    });
+
+    this.geoLocation.requestLocation(location => {
+      if(location){
+        this.coffee.location.latitude=location.latitude;
+        this.coffee.location.longitude=location.longitude;
+      }
+      
+    
     })
   }
 
