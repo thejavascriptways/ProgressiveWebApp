@@ -1,4 +1,7 @@
-class coffee{
+import { TastingRating } from "./TastingRating";
+import { PlaceLocation } from "./PlaceLocation";
+
+export class Coffee{
 
     //properties
 
@@ -9,8 +12,9 @@ class coffee{
     
 
     constructor(
-        public name: string,
-        public place: string,
-        public location : PlaceLocation
+        
+        public name: string="",
+        public place: string="",
+        public location : PlaceLocation = null
     ){}
 }

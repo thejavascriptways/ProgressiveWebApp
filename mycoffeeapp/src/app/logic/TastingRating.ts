@@ -1,4 +1,4 @@
-class TastingRating{
+export class TastingRating{
     aoma: number;
     body: number;
     flavor: number;

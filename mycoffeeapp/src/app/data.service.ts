@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { Coffee } from './logic/coffee';
+import { PlaceLocation } from './logic/PlaceLocation';
 
 @Injectable({
   providedIn: 'root'
@@ -10,10 +12,10 @@ export class DataService {
   getList(callback){
       //add code to access web service
     const list =[
-      new coffee("Double Expresso","Sunny Cafe", new PlaceLocation(
+      new Coffee("Double Expresso","Sunny Cafe", new PlaceLocation(
         "123 Market Street", "San Francisco"
       )),
-      new coffee("Caramel Americano","Star Coffee",new PlaceLocation(
+      new Coffee("Caramel Americano","Star Coffee",new PlaceLocation(
         "Gram via 34","Madrid"
       ))
     ];
@@ -21,7 +23,7 @@ export class DataService {
 
   }
 
-  save(coffee, callback){
+  save(Coffee, callback){
     //add code to access web service
     callback();
   }
